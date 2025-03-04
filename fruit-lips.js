@@ -67,6 +67,7 @@ addEventListener("DOMContentLoaded", (event) => {
     // Add listeners
     startButton.addEventListener('click', () => {
         recognition.start();
+        //textToMouths('Colchester')
     });
 
     addMouths();
@@ -87,30 +88,33 @@ function addMouths() {
 }
 
 function textToMouths(text){
-    const sylabbles = textToSyllables(text)
-    console.log(sylabbles)
-    textToMouths(sylabbles)
+    const syllables = textToSyllables(text)
+    console.log(syllables)
+    syllablesToMouths(syllables)
 }
 
 function textToSyllables(text){
     const sylabbles = []
-    for(const letterIndex of text){
-        if(letterIndex == ' '){
+    for(var i = 0; i < text.length; i++){
+        const letter = text.charAt(i)
+        if(letter == ' '){
             continue
         }
-        if(letterIndex == text.length - 1){
-            sylabbles.push(text[letterIndex])
+        const nextLetter = text.charAt(i + 1)
+
+        if(i == text.length - 1){
+            sylabbles.push(letter)
             continue
         }
-        if(text[letterIndex] == 'c' && text[letterIndex] == 'h' ||
-            text[letterIndex] == 's' && text[letterIndex] == 'h' ||
-            text[letterIndex] == 't' && text[letterIndex] == 'h' ||
-            text[letterIndex] == 'e' && text[letterIndex + 1] == 'e'){
-                sylabbles.push(text[letterIndex] + text[letterIndex + 1])
-                letterIndex++
+        if(letter == 'c' && nextLetter == 'h' ||
+            letter == 's' && nextLetter == 'h' ||
+            letter == 't' && nextLetter == 'h' ||
+            letter == 'e' && nextLetter == 'e'){
+                sylabbles.push(letter + nextLetter)
+                i++
                 continue
         }
-        sylabbles.push(text[letterIndex])
+        sylabbles.push(letter)
     }
     return sylabbles
 }
@@ -127,6 +131,10 @@ async function syllablesToMouths(sylabbles) {
         element.classList.add('highlighted')
         await sleep(getMouthDuration(pos));
         element.classList.remove('highlighted')
+    }
+
+    for(const el of highlightedElements){
+        el.classList.add('highlighted')
     }
 }
 
