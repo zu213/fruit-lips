@@ -1,0 +1,8 @@
+.mouth-image {
+    position: absolute;
+    z-index: 0;
+}
+
+.highlighted {
+    z-index: 1;
+}
