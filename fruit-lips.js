@@ -1,7 +1,7 @@
 
 const mouthPositions = {
     pos1: ["a", "e", "i"],
-    pos2: ["b", "m", "p"],
+    pos2: ["b", "m", "p"," "],
     pos3: ["c", "d", "g", "k", "n", "s", "t", "x", "y", "z", "h"],
     pos4: ["ch", "sh", "j"],
     pos5: ["ee"],
@@ -107,7 +107,7 @@ function textToSyllables(text){
     for(var i = 0; i < text.length; i++){
         const letter = text.charAt(i)
         if(letter == ' '){
-            sylabbles.push('b')
+            sylabbles.push(' ')
             continue
         }
         const nextLetter = text.charAt(i + 1)
@@ -158,11 +158,15 @@ function addOutputSyllables(syllables){
     const outputDiv = document.getElementById('output');
     outputDiv.innerHTML = ''
     var counter = 0;
+    console.log(syllables)
     for(const syllable of syllables){
         const el = document.createElement('div')
         el.classList.add('inline-syllable')
         el.id = `syllable-${counter}`
         el.innerText = syllable
+        if(syllable == ' '){
+            el.innerText = '\u00A0'
+        }
         outputDiv.appendChild(el)
         counter++;
     }

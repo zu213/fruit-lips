@@ -35,7 +35,8 @@ body {
     vertical-align: middle;
     justify-content: center;
     min-height: 30px;
-    border: 2px solid black;;
+    border: 2px solid black;
+    overflow: auto;
 }
 
 .output .inline-syllable {
