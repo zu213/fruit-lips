@@ -1,4 +1,5 @@
 
+// Mouth positions mappings
 const mouthPositions = {
     pos1: ["a", "e", "i"],
     pos2: ["b", "m", "p"," "],
@@ -12,16 +13,16 @@ const mouthPositions = {
     pos10: ["r"],
     pos11: ["th"],
     pos12: ["u"],
-};
+}
 
 const mouthPositionLookup = Object.fromEntries(
     Object.entries(mouthPositions).flatMap(([category, values]) =>
         values.map(value => [value, category])
     )
-);
+)
 
 function getMouthPosition(input) {
-    return mouthPositionLookup[input.toLowerCase()] || "0";
+    return mouthPositionLookup[input.toLowerCase()] || 0
 }
 
 const mouthDuration = {
@@ -37,52 +38,44 @@ const mouthDuration = {
     pos10: 150,
     pos11: 250,
     pos12: 200,
-
-};
-
-function getMouthDuration(input) {
-    return mouthDuration[input.toLowerCase()] ?? -1; 
 }
 
+function getMouthDuration(input) {
+    return mouthDuration[input.toLowerCase()] ?? -1
+}
 
-addEventListener("DOMContentLoaded", (event) => {
-    const startButton = document.getElementById('startButton');
-    const outputDiv = document.getElementById('output');
+// Main setup
+addEventListener("DOMContentLoaded", function() {
+    const startButton = document.getElementById('startButton')
+    const outputDiv = document.getElementById('output')
     var listening = false
-    var result = '';
+    var result = ''
+    let inactivityTimer
+
     // Add speech recognition
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-    recognition.lang = 'en-US';
-    recognition.continuous = true;
-    recognition.interimResults = true;
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()
+    recognition.lang = 'en-US'
+    recognition.continuous = true
+    recognition.interimResults = true
     recognition.onstart = () => {
-        startButton.textContent = 'Listening...Click to finish';
-        listening = true;
+        startButton.textContent = 'Listening...Click to finish'
+        listening = true
     };
     recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
+        const transcript = event.results[0][0].transcript
         result = transcript
         outputDiv.innerText = transcript
+        console.log(transcript)
+        clearTimeout(inactivityTimer)
+        inactivityTimer = setTimeout(toggleListening, 1000)
     };
     recognition.onend = () => {
-        listening = false;
-        startButton.textContent = 'Start Voice Input';
+        listening = false
+        startButton.textContent = 'Start Voice Input'
     };
     recognition.onerror = (event) => {
-        console.error("Speech recognition error:", event.error);
+        console.error("Speech recognition error:", event.error)
     };
-
-    function toggleListening() {
-        if(!listening){
-            result = '';
-            recognition.start()
-        }
-        else{
-            recognition.stop();
-            addOutputSyllables(textToSyllables(result))
-            textToMouths(result)
-        }
-    }
 
     // Add listeners
     startButton.addEventListener('click', () => {
@@ -91,19 +84,36 @@ addEventListener("DOMContentLoaded", (event) => {
     
 
     document.getElementById("textForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent page refresh
-        let inputText = document.getElementById("textInput").value;
-        addOutputSyllables(textToSyllables(inputText))
-        textToMouths(inputText)
+        event.preventDefault()
+        let inputText = document.getElementById("textInput").value
+        const syllables = textToSyllables(inputText)
+        addOutputSyllables(syllables)
+        syllablesToMouths(syllables)
         const el = document.getElementById('textInput')
         el.value = ''
     });
 
+    // helper functions
+    function toggleListening() {
+        if(!listening){
+            result = '';
+            recognition.start()
+        }
+        else{
+            if(inactivityTimer) clearTimeout(inactivityTimer);
+            recognition.stop();
+            const syllables = textToSyllables(result)
+            addOutputSyllables(syllables)
+            syllablesToMouths(syllables)
+        }
+    }
+
     addMouths();
 });
 
+// add the mouths to the screen
 function addMouths() {
-    const outputDiv = document.getElementById('images');
+    const outputDiv = document.getElementById('images')
     for(var i = 1; i <= 12; i++){
         const img = document.createElement('img')
         img.src = `./mouths/pos${i}.png`
@@ -116,60 +126,48 @@ function addMouths() {
     }
 }
 
-function textToMouths(text){
-    const syllables = textToSyllables(text)
-    console.log(syllables)
-    syllablesToMouths(syllables)
-}
-
+//comvert text to syllable lists
 function textToSyllables(text){
-    const sylabbles = []
+    const syllables = []
     for(var i = 0; i < text.length; i++){
         const letter = text.charAt(i)
-        if(letter == ' '){
-            sylabbles.push(' ')
-            continue
-        }
         const nextLetter = text.charAt(i + 1)
 
         if(i == text.length - 1){
-            sylabbles.push(letter)
+            syllables.push(letter)
             continue
-        }
-        if(letter == 'c' && nextLetter == 'h' ||
+        } else if(letter == 'c' && nextLetter == 'h' ||
             letter == 's' && nextLetter == 'h' ||
             letter == 't' && nextLetter == 'h' ||
             letter == 'e' && nextLetter == 'e'){
-                sylabbles.push(letter + nextLetter)
+                syllables.push(letter + nextLetter)
                 i++
                 continue
         }
-        sylabbles.push(letter)
+        syllables.push(letter)
     }
-    return sylabbles
+    return syllables
 }
 
-async function syllablesToMouths(sylabbles) {
+async function syllablesToMouths(syllables) {
     const highlightedElements = document.querySelectorAll('.highlighted')
     for(const el of highlightedElements){
         el.classList.remove('highlighted')
     }
 
-    var counter = 0;
-    for(const sylabble of sylabbles){
-        const pos = getMouthPosition(sylabble);
-        if(pos == '0'){
-            continue
-        }
-        const element = document.getElementById(pos);
+    var counter = 0
+    for(const syllable of syllables){
+        const pos = getMouthPosition(syllable);
+        if(pos == 0) continue
+        const element = document.getElementById(pos)
         const wordElement = document.getElementById(`syllable-${counter}`)
         element.classList.add('highlighted')
         wordElement.classList.add('embold')
 
-        await sleep(getMouthDuration(pos));
+        await sleep(getMouthDuration(pos))
         element.classList.remove('highlighted')
         wordElement.classList.remove('embold')
-        counter++;
+        counter++
     }
 
     for(const el of highlightedElements){
@@ -178,20 +176,17 @@ async function syllablesToMouths(sylabbles) {
 }
 
 function addOutputSyllables(syllables){
-    const outputDiv = document.getElementById('output');
+    const outputDiv = document.getElementById('output')
     outputDiv.innerHTML = ''
-    var counter = 0;
-    console.log(syllables)
+    var counter = 0
     for(const syllable of syllables){
         const el = document.createElement('div')
         el.classList.add('inline-syllable')
         el.id = `syllable-${counter}`
         el.innerText = syllable
-        if(syllable == ' '){
-            el.innerText = '\u00A0'
-        }
+        if(syllable == ' ') el.innerText = '\u00A0'
         outputDiv.appendChild(el)
-        counter++;
+        counter++
     }
 }
 
