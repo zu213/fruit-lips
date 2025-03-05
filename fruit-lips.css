@@ -1,5 +1,41 @@
 body {
     text-align: center;
+    background-color: #f1f1f1;
+    font-family: monospace;
+}
+
+button {
+    align-items: center;
+    padding: 6px 14px;
+    font-family: monospace;
+    border-radius: 6px;
+    color: #3D3D3D;
+    background: #fff;
+    border: none;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+  
+button:focus {
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+    outline: 0;
+}
+
+form input{
+    width: 60%;
+    height: 1.5em;
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 48px; 
+    font-weight: bold; 
+    text-align: center; 
+    color: #4f4f4f;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 
@@ -35,7 +71,8 @@ body {
     vertical-align: middle;
     justify-content: center;
     min-height: 30px;
-    border: 2px solid black;
+    border: 0.7px solid black;
+    border-radius: 5px;
     overflow: auto;
 }
 

@@ -48,35 +48,53 @@ function getMouthDuration(input) {
 addEventListener("DOMContentLoaded", (event) => {
     const startButton = document.getElementById('startButton');
     const outputDiv = document.getElementById('output');
-
+    var listening = false
+    var result = '';
     // Add speech recognition
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
     recognition.lang = 'en-US';
     recognition.continuous = true;
     recognition.interimResults = true;
     recognition.onstart = () => {
-        startButton.textContent = 'Listening...';
+        startButton.textContent = 'Listening...Click to finish';
+        listening = true;
     };
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
-        outputDiv.textContent = transcript;
-        textToMouths(transcript)
+        result = transcript
+        outputDiv.innerText = transcript
     };
     recognition.onend = () => {
+        listening = false;
         startButton.textContent = 'Start Voice Input';
+    };
+    recognition.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
     };
 
     // Add listeners
     startButton.addEventListener('click', () => {
-        recognition.start();
-        //textToMouths('Colchester')
+        if(!listening){
+            result = '';
+            navigator.mediaDevices.getUserMedia({ audio: { noiseSuppression: true, echoCancellation: true } })
+                .then(() => recognition.start())
+                .catch(error => console.error("Microphone access error:", error));
+        }
+        else{
+            recognition.stop();
+            addOutputSyllables(textToSyllables(result))
+            textToMouths(result)
+        }
     });
+    
 
     document.getElementById("textForm").addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent page refresh
         let inputText = document.getElementById("textInput").value;
         addOutputSyllables(textToSyllables(inputText))
         textToMouths(inputText)
+        const el = document.getElementById('textInput')
+        el.value = ''
     });
 
     addMouths();
