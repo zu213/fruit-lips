@@ -2,7 +2,7 @@
 const mouthPositions = {
     pos1: ["a", "e", "i"],
     pos2: ["b", "m", "p"],
-    pos3: ["c", "d", "g", "k", "n", "s", "t", "x", "y", "z"],
+    pos3: ["c", "d", "g", "k", "n", "s", "t", "x", "y", "z", "h"],
     pos4: ["ch", "sh", "j"],
     pos5: ["ee"],
     pos6: ["f", "v"],
@@ -25,18 +25,18 @@ function getMouthPosition(input) {
 }
 
 const mouthDuration = {
-    pos1: 1000,
-    pos2: 1000,
-    pos3: 1000,
-    pos4: 1000,
-    pos5: 1000,
-    pos6: 1000,
-    pos7: 1000,
-    pos8: 1000,
-    pos9: 1000,
-    pos10: 1000,
-    pos11: 1000,
-    pos12: 1000,
+    pos1: 200,
+    pos2: 150,
+    pos3: 150,
+    pos4: 250,
+    pos5: 200,
+    pos6: 150,
+    pos7: 150,
+    pos8: 200,
+    pos9: 150,
+    pos10: 150,
+    pos11: 250,
+    pos12: 200,
 
 };
 
@@ -70,6 +70,13 @@ addEventListener("DOMContentLoaded", (event) => {
         //textToMouths('Colchester')
     });
 
+    document.getElementById("textForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page refresh
+        let inputText = document.getElementById("textInput").value;
+        addOutputSyllables(textToSyllables(inputText))
+        textToMouths(inputText)
+    });
+
     addMouths();
 });
 
@@ -98,6 +105,7 @@ function textToSyllables(text){
     for(var i = 0; i < text.length; i++){
         const letter = text.charAt(i)
         if(letter == ' '){
+            sylabbles.push('b')
             continue
         }
         const nextLetter = text.charAt(i + 1)
@@ -125,16 +133,36 @@ async function syllablesToMouths(sylabbles) {
         el.classList.remove('highlighted')
     }
 
+    var counter = 0;
     for(const sylabble of sylabbles){
         const pos = getMouthPosition(sylabble);
         const element = document.getElementById(pos);
+        const wordElement = document.getElementById(`syllable-${counter}`)
         element.classList.add('highlighted')
+        wordElement.classList.add('embold')
+
         await sleep(getMouthDuration(pos));
         element.classList.remove('highlighted')
+        wordElement.classList.remove('embold')
+        counter++;
     }
 
     for(const el of highlightedElements){
         el.classList.add('highlighted')
+    }
+}
+
+function addOutputSyllables(syllables){
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = ''
+    var counter = 0;
+    for(const syllable of syllables){
+        const el = document.createElement('div')
+        el.classList.add('inline-syllable')
+        el.id = `syllable-${counter}`
+        el.innerText = syllable
+        outputDiv.appendChild(el)
+        counter++;
     }
 }
 

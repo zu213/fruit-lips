@@ -1,3 +1,8 @@
+body {
+    text-align: center;
+}
+
+
 .mouth-image {
     position: absolute;
     z-index: 0;
@@ -5,4 +10,33 @@
 
 .highlighted {
     z-index: 1;
+}
+
+.images {
+    width: 10vw;
+    height: 10vw;
+    left:40vw;
+    padding: 10px;
+    position: relative;
+}
+
+.text-form {
+    padding: 10px;
+}
+
+.output {
+    padding: 10px;
+    line-height: 3em;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.output .inline-syllable {
+    display: inline-block;
+}
+
+.output .embold {
+    font-size: x-large;
+    font-weight: bold;
 }
