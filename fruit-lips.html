@@ -3,23 +3,25 @@
 <head>
     <title>Voice to Text</title>
     <link rel="stylesheet" href="fruit-lips.css">
+    <script src="./fruit-lips.js"></script>
 </head>
 
 <body>
 
     <h2>Fruit lips</h2>
+    <div class="container">
 
-    <div class="images" id="images"></div>
+        <div class="images" id="images"></div>
 
-    <button class="voice-input" id="startButton">Start Voice Input</button>
-    <div class="text-form">
-        <form id="textForm">
-            <input type="text" id="textInput" placeholder="Enter text here" required>
-            <button type="submit">Submit</button>
-        </form>
+        <button class="voice-input" id="startButton">Start Voice Input</button>
+        <div class="text-form">
+            <form id="textForm">
+                <input type="text" id="textInput" placeholder="Enter text here" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="output" id="output"></div>
     </div>
-    <div class="output" id="output"></div>
 
-    <script src="./fruit-lips.js"></script>
 </body>
 </html>

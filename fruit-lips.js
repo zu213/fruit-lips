@@ -52,6 +52,8 @@ addEventListener("DOMContentLoaded", (event) => {
     // Add speech recognition
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
     recognition.lang = 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = true;
     recognition.onstart = () => {
         startButton.textContent = 'Listening...';
     };
