@@ -21,7 +21,7 @@ const mouthPositionLookup = Object.fromEntries(
 );
 
 function getMouthPosition(input) {
-    return mouthPositionLookup[input.toLowerCase()] || "unknown";
+    return mouthPositionLookup[input.toLowerCase()] || "0";
 }
 
 const mouthDuration = {
@@ -72,19 +72,21 @@ addEventListener("DOMContentLoaded", (event) => {
         console.error("Speech recognition error:", event.error);
     };
 
-    // Add listeners
-    startButton.addEventListener('click', () => {
+    function toggleListening() {
         if(!listening){
             result = '';
-            navigator.mediaDevices.getUserMedia({ audio: { noiseSuppression: true, echoCancellation: true } })
-                .then(() => recognition.start())
-                .catch(error => console.error("Microphone access error:", error));
+            recognition.start()
         }
         else{
             recognition.stop();
             addOutputSyllables(textToSyllables(result))
             textToMouths(result)
         }
+    }
+
+    // Add listeners
+    startButton.addEventListener('click', () => {
+        toggleListening()
     });
     
 
@@ -156,6 +158,9 @@ async function syllablesToMouths(sylabbles) {
     var counter = 0;
     for(const sylabble of sylabbles){
         const pos = getMouthPosition(sylabble);
+        if(pos == '0'){
+            continue
+        }
         const element = document.getElementById(pos);
         const wordElement = document.getElementById(`syllable-${counter}`)
         element.classList.add('highlighted')
