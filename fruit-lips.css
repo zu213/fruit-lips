@@ -38,6 +38,11 @@ h1 {
     display: inline-block;
 }
 
+@media only screen and (max-width: 285px) {
+    h1 {
+      margin: 0 2px;
+    }
+  }
 
 .mouth-image {
     position: absolute;
@@ -49,10 +54,11 @@ h1 {
 }
 
 .images {
-    width: 10%;
-    height: 10vw;
-    left:40%;
-    transform: translate(35%, 0);
+    width: 90px;
+    height: 90px;
+    margin: 20px;
+    left:50%;
+    transform: translate(calc(-50% - 20px), 0);
     padding: 10px;
     position: relative;
     display: flex;
@@ -90,6 +96,19 @@ h1 {
     width: 60%;
     left: 20%;
 }
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        left: 5%;
+        display: block;
+    }
+    form input {
+        margin: 5px;
+        width: 90%;
+    }
+  }
+
 
 .firefox {
     display: none;
