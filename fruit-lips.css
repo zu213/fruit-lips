@@ -90,3 +90,16 @@ h1 {
     width: 60%;
     left: 20%;
 }
+
+.firefox {
+    display: none;
+}
+
+@-moz-document url-prefix() {
+    .container {
+        display: none;
+    }
+    .firefox {
+        display: block;
+    }
+}
