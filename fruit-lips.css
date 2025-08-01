@@ -123,3 +123,13 @@ h1 {
         display: block;
     }
 }
+
+
+.orb {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: black;
+    position: absolute;
+    transition: top 0.3s ease, left 0.3s ease;
+}

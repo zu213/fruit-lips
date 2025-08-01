@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice to Text</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fruit-lips.css">
+    <script type="module" src="./fruit-lips-orb.js"></script>
+</head>
+
+<body>
+
+    <h1>Fruit lips</h1>
+    <div class="container">
+
+        <div class="images" id="images"></div>
+
+        <button class="voice-input" id="startButton">Start Voice Input</button>
+        <div class="text-form">
+            <form id="textForm">
+                <input type="text" id="textInput" placeholder="Enter text here" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="output" id="output"></div>
+    </div>
+
+    <div class="firefox">
+        Speech recognition doesn't work on firefox, switch browser to give it a try.
+    </div>
+
+</body>
+</html>
