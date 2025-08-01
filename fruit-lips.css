@@ -112,10 +112,11 @@ h1 {
 
 .firefox {
     display: none;
+    padding: 5px;
 }
 
 @-moz-document url-prefix() {
-    .container {
+    .voice-input {
         display: none;
     }
     .firefox {

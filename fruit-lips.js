@@ -15,6 +15,8 @@ const mouthPositions = {
     pos12: ["u"],
 }
 
+var recognition
+
 const mouthPositionLookup = Object.fromEntries(
     Object.entries(mouthPositions).flatMap(([category, values]) =>
         values.map(value => [value, category])
@@ -53,34 +55,38 @@ addEventListener("DOMContentLoaded", function() {
     let inactivityTimer
 
     // Add speech recognition
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()
-    recognition.lang = 'en-US'
-    recognition.continuous = true
-    recognition.interimResults = true
-    recognition.onstart = () => {
-        startButton.textContent = 'Listening...Click to finish'
-        listening = true
-    };
-    recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript
-        result = transcript
-        outputDiv.innerText = transcript
-        console.log(transcript)
-        clearTimeout(inactivityTimer)
-        inactivityTimer = setTimeout(toggleListening, 1000)
-    };
-    recognition.onend = () => {
-        listening = false
-        startButton.textContent = 'Start Voice Input'
-    };
-    recognition.onerror = (event) => {
-        console.error("Speech recognition error:", event.error)
-    };
+    if(window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition) {
+        recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()
+        recognition.lang = 'en-US'
+        recognition.continuous = true
+        recognition.interimResults = true
+        recognition.onstart = () => {
+            startButton.textContent = 'Listening...Click to finish'
+            listening = true
+        };
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript
+            result = transcript
+            outputDiv.innerText = transcript
+            console.log(transcript)
+            clearTimeout(inactivityTimer)
+            inactivityTimer = setTimeout(toggleListening, 1000)
+        };
+        recognition.onend = () => {
+            listening = false
+            startButton.textContent = 'Start Voice Input'
+        };
+        recognition.onerror = (event) => {
+            console.error("Speech recognition error:", event.error)
+        };
 
-    // Add listeners
-    startButton.addEventListener('click', () => {
-        toggleListening()
-    });
+        // Add listeners
+        startButton.addEventListener('click', () => {
+            toggleListening()
+        });
+    } else {
+        console.log('Invalid browser for speech recognition')
+    }
     
 
     document.getElementById("textForm").addEventListener("submit", function(event) {
@@ -95,11 +101,12 @@ addEventListener("DOMContentLoaded", function() {
 
     // helper functions
     function toggleListening() {
+        if(!recognition) return
         if(!listening){
             result = '';
             recognition.start()
         }
-        else{
+        else {
             if(inactivityTimer) clearTimeout(inactivityTimer);
             recognition.stop();
             const syllables = textToSyllables(result)
