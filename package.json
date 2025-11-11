@@ -1,0 +1,19 @@
+{
+  "name": "fruit-lips",
+  "version": "1.0.0",
+  "description": "Small HTML/JS code to animate speaking animations from voice recognition or text input.",
+  "main": "fruit-lips.js",
+  "scripts": {
+    "compile-style": "npx sass ./src2/fruit-lips.scss ./src2/fruit-lips2.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zu213/fruit-lips.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/zu213/fruit-lips#readme",
+  "devDependencies": {
+    "sass": "^1.94.0"
+  }
+}

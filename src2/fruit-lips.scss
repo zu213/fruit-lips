@@ -1,0 +1,150 @@
+@for $i from 1 through 5 {
+  :root {
+    --orb-#{$i}-x: #{50 * $i}px;
+    --orb-#{$i}-y: #{30 * $i}px;
+  }
+}
+
+body {
+    text-align: center;
+    background-color: #f1f1f1;
+    font-family: monospace;
+}
+
+button {
+    align-items: center;
+    padding: 6px 14px;
+    font-family: monospace;
+    border-radius: 6px;
+    color: #3D3D3D;
+    background: #fff;
+    border: none;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+  
+button:focus {
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+    outline: 0;
+}
+
+form input{
+    width: 60%;
+    height: 1.5em;
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 48px; 
+    font-weight: bold; 
+    text-align: center; 
+    color: #4f4f4f;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+@media only screen and (max-width: 450px) {
+    h1 {
+      margin: 5px 0;
+    }
+  }
+
+.mouth-image {
+    position: absolute;
+    z-index: 0;
+}
+
+.highlighted {
+    z-index: 1;
+}
+
+.images {
+    width: 90px;
+    height: 90px;
+    margin: 20px;
+    left:50%;
+    transform: translate(calc(-50% - 20px), 0);
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.text-form {
+    padding: 10px;
+}
+
+.output {
+    padding: 10px;
+    line-height: 1.5em;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    min-height: 30px;
+    border: 0.7px solid black;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.output .inline-syllable {
+    display: inline-block;
+}
+
+.output .embold {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.container {
+    position: relative;
+    width: 60%;
+    left: 20%;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        left: 5%;
+        display: block;
+    }
+    form input {
+        margin: 5px;
+        width: 90%;
+    }
+  }
+
+
+.firefox {
+    display: none;
+    padding: 5px;
+}
+
+@-moz-document url-prefix() {
+    .voice-input {
+        display: none;
+    }
+    .firefox {
+        display: block;
+    }
+}
+
+.orb {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    transition: top 0.3s ease, left 0.3s ease;
+    background-image: url('./apple.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.top-lip-outer, .bottom-lip-outer {
+    background-image: url('./pear.png');
+}
+
+.top-lip-inner, .bottom-lip-inner {
+    background-image: url('./apple.png');
+}
