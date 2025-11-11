@@ -124,12 +124,20 @@ h1 {
     }
 }
 
-
 .orb {
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: black;
+    width: 20px;
+    height: 20px;
     position: absolute;
     transition: top 0.3s ease, left 0.3s ease;
+    background-image: url('./apple.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.top-lip-outer, .bottom-lip-outer {
+    background-image: url('./pear.png');
+}
+
+.top-lip-inner, .bottom-lip-inner {
+    background-image: url('./apple.png');
 }

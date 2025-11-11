@@ -30,18 +30,18 @@ function getMouthPosition(input) {
 }
 
 const mouthDuration = {
-    pos1: 200,
-    pos2: 150,
-    pos3: 150,
-    pos4: 250,
-    pos5: 200,
-    pos6: 150,
-    pos7: 150,
-    pos8: 200,
-    pos9: 150,
-    pos10: 150,
-    pos11: 250,
-    pos12: 200,
+    pos1: 120,   // a,e,i - short vowels, quick
+    pos2: 80,    // b,m,p - explosive consonants, very fast
+    pos3: 100,   // c,d,g,k,n,s,t,x,y,z,h - quick consonants
+    pos4: 180,   // ch,sh,j - longer consonants with friction
+    pos5: 160,   // ee - sustained vowel
+    pos6: 120,   // f,v - fricatives, medium speed
+    pos7: 100,   // l - quick liquid consonant
+    pos8: 180,   // o - rounded vowel, slightly longer
+    pos9: 140,   // q,w - semi-vowels
+    pos10: 110,  // r - liquid consonant
+    pos11: 150,  // th - fricative, needs time
+    pos12: 180,  // u - rounded vowel, sustained
 }
 
 function getMouthDuration(input) {
@@ -72,7 +72,6 @@ addEventListener("DOMContentLoaded", async function() {
             const transcript = event.results[0][0].transcript
             result = transcript
             outputDiv.innerText = transcript
-            console.log(transcript)
             clearTimeout(inactivityTimer)
             inactivityTimer = setTimeout(toggleListening, 1000)
         };
@@ -126,14 +125,31 @@ addEventListener("DOMContentLoaded", async function() {
 function addMouths() {
     const outputDiv = document.getElementById('images')
 
-    for(const coords of orbsData['pos2']){
-        console.log(coords)
+    // Orbs 0-11: Top outer lip (12 points)
+    // Orbs 12-18: Upper inner lip (7 points)
+    // Orbs 19-24: Lower inner lip (6 points)
+    // Orbs 25-31: Bottom outer lip (7 points)
+    var counter = 0
+    for(const coords of orbsData['pos1']){
         const orb = document.createElement('div')
         orb.classList.add('orb')
         orb.style.top = `${coords['y'] + 1}rem`
         orb.style.left = `${coords['x'] + 3}rem`
+
+        if (counter < 13) {
+            orb.classList.add('top-lip-outer')
+        } else if(counter < 19) {
+            orb.classList.add('top-lip-inner')
+        } else if(counter < 25) {
+            orb.classList.add('bottom-lip-inner')
+        } else {
+            orb.classList.add('bottom-lip-outer')
+        }
+        counter++
+
         outputDiv.appendChild(orb)
     }
+    resetMouth()
 }
 
 //comvert text to syllable lists
@@ -179,7 +195,12 @@ async function syllablesToMouths(syllables) {
         wordElement.classList.remove('embold')
         counter++
     }
+    resetMouth()
+}
+
+function resetMouth() {
     var orbCounter = 0
+    const orbs = document.getElementById('images').childNodes
     for(const coords of orbsData['pos2']){
         const orb = orbs[orbCounter]
         orb.style.top = `${coords['y'] + 1}rem`
