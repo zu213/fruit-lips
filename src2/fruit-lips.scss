@@ -1,7 +1,7 @@
-@for $i from 1 through 5 {
+@for $i from 0 through 32 {
   :root {
-    --orb-#{$i}-x: #{50 * $i}px;
-    --orb-#{$i}-y: #{30 * $i}px;
+    --orb-#{$i}-x: 0px;
+    --orb-#{$i}-y: 0px;
   }
 }
 
@@ -136,15 +136,42 @@ h1 {
     height: 20px;
     position: absolute;
     transition: top 0.3s ease, left 0.3s ease;
-    background-image: url('./apple.png');
+    background-image: url('./images/apple.png');
     background-size: cover;
     background-position: center;
 }
 
+@for $i from 0 through 32 {
+  .orb-#{$i} {
+    top: var(--orb-#{$i}-y);
+    left: var(--orb-#{$i}-x);
+  }
+}
+
 .top-lip-outer, .bottom-lip-outer {
-    background-image: url('./pear.png');
+    background-image: url('./images/pear.png');
 }
 
 .top-lip-inner, .bottom-lip-inner {
-    background-image: url('./apple.png');
+    background-image: url('./images/apple.png');
+}
+
+.connector {
+    position: absolute;
+    height: 2px;
+    background: black;
+    transform-origin: 0 0;
+    z-index: -1;
+    transition: top 0.3s ease, left 0.3s ease;
+}
+
+@for $i from 0 through 32 {
+    @for $j from 0 through 32 {
+        .connector-#{$i}-#{$j} {
+            top: calc(var(--orb-#{$i}-y) + 10px);
+            left: calc(var(--orb-#{$i}-x) + 10px);
+            width: var(--connector-#{$i}-#{$j}-length, 0px);
+            transform: rotate(var(--connector-#{$i}-#{$j}-angle, 0deg));
+        }
+    }
 }

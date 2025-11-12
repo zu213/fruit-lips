@@ -6,7 +6,7 @@ const mouthPositions = {
     pos2: ["b", "m", "p"," "],
     pos3: ["c", "d", "g", "k", "n", "s", "t", "x", "y", "z", "h"],
     pos4: ["ch", "sh", "j"],
-    pos5: ["ee"],
+    pos5: ["ee"], // this is messed up
     pos6: ["f", "v"],
     pos7: ["l"],
     pos8: ["o"],
@@ -43,6 +43,13 @@ const mouthDuration = {
     pos11: 150,  // th - fricative, needs time
     pos12: 180,  // u - rounded vowel, sustained
 }
+
+const connectedNodes = [
+    [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12], [0,25],[12,32],
+    [13,14],[14,15],[15,16],[16,17],[17,18],
+    [19,20],[20,21],[21,22],[22,23],[23,24],
+    [25,26],[26,27],[27,28],[28,29],[29,30],[30,31],[31,32]
+]
 
 function getMouthDuration(input) {
     return mouthDuration[input.toLowerCase()] ?? -1
@@ -125,16 +132,17 @@ addEventListener("DOMContentLoaded", async function() {
 function addMouths() {
     const outputDiv = document.getElementById('images')
 
-    // Orbs 0-11: Top outer lip (12 points)
-    // Orbs 12-18: Upper inner lip (7 points)
+    // Orbs 0-12: Top outer lip (12 points)
+    // Orbs 13-18: Upper inner lip (6 points)
     // Orbs 19-24: Lower inner lip (6 points)
     // Orbs 25-31: Bottom outer lip (7 points)
     var counter = 0
-    for(const coords of orbsData['pos1']){
+    for(const coords of orbsData['pos2']){
         const orb = document.createElement('div')
         orb.classList.add('orb')
-        orb.style.top = `${coords['y'] + 1}rem`
-        orb.style.left = `${coords['x'] + 3}rem`
+        orb.classList.add(`orb-${counter}`)
+        document.documentElement.style.setProperty(`--orb-${counter}-x`, `${coords['x'] + 3}rem`);
+        document.documentElement.style.setProperty(`--orb-${counter}-y`, `${coords['y'] + 1}rem`);
 
         if (counter < 13) {
             orb.classList.add('top-lip-outer')
@@ -145,10 +153,20 @@ function addMouths() {
         } else {
             orb.classList.add('bottom-lip-outer')
         }
-        counter++
-
         outputDiv.appendChild(orb)
+
+        counter++
     }
+
+    for(const connectedNode of connectedNodes){
+        const connector = document.createElement('div')
+        console.log(connectedNode)
+        connector.classList.add('connector')
+        connector.classList.add(`connector-${connectedNode[0]}-${connectedNode[1]}`)
+        outputDiv.appendChild(connector)
+        updateConnector(connectedNode[0] , connectedNode[1])
+    }
+
     resetMouth()
 }
 
@@ -177,17 +195,17 @@ function textToSyllables(text){
 
 async function syllablesToMouths(syllables) {
     var counter = 0
-    const orbs = document.getElementById('images').childNodes
     for(const syllable of syllables){
         const pos = getMouthPosition(syllable);
         if(pos == 0) continue
         var orbCounter = 0
         for(const coords of orbsData[pos]){
-            const orb = orbs[orbCounter]
-            orb.style.top = `${coords['y'] + 1}rem`
-            orb.style.left = `${coords['x'] + 3}rem`
+            document.documentElement.style.setProperty(`--orb-${orbCounter}-x`, `${coords['x'] + 3}rem`);
+            document.documentElement.style.setProperty(`--orb-${orbCounter}-y`, `${coords['y'] + 1}rem`);
             orbCounter++
         }
+
+        updateAllConnectors()
 
         const wordElement = document.getElementById(`syllable-${counter}`)
         wordElement.classList.add('embold')
@@ -200,13 +218,13 @@ async function syllablesToMouths(syllables) {
 
 function resetMouth() {
     var orbCounter = 0
-    const orbs = document.getElementById('images').childNodes
     for(const coords of orbsData['pos2']){
-        const orb = orbs[orbCounter]
-        orb.style.top = `${coords['y'] + 1}rem`
-        orb.style.left = `${coords['x'] + 3}rem`
+        document.documentElement.style.setProperty(`--orb-${orbCounter}-x`, `${coords['x'] + 3}rem`);
+        document.documentElement.style.setProperty(`--orb-${orbCounter}-y`, `${coords['y'] + 1}rem`);
         orbCounter++
     }
+
+    updateAllConnectors()
 }
 
 function addOutputSyllables(syllables){
@@ -226,4 +244,45 @@ function addOutputSyllables(syllables){
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function updateConnector(orb1, orb2) {
+    
+    // Orbs 0-11: Top outer lip (12 points)
+    // Orbs 12-18: Upper inner lip (7 points)
+    // Orbs 19-24: Lower inner lip (6 points)
+    // Orbs 25-31: Bottom outer lip (7 points)
+    if ((orb1 == 12 && orb2 == 13) ||
+        (orb1 == 18 && orb2 == 19) ||
+        (orb1 == 24 && orb2 == 25)) {
+            return
+    }
+
+
+    const style = getComputedStyle(document.documentElement);
+
+    // Get values in rem
+    const x1Rem = parseFloat(style.getPropertyValue(`--orb-${orb1}-x`));
+    const y1Rem = parseFloat(style.getPropertyValue(`--orb-${orb1}-y`));
+    const x2Rem = parseFloat(style.getPropertyValue(`--orb-${orb2}-x`));
+    const y2Rem = parseFloat(style.getPropertyValue(`--orb-${orb2}-y`));
+
+    // Convert rem to px (1rem = 16px by default, but get actual value)
+    const remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const x1 = x1Rem * remSize;
+    const y1 = y1Rem * remSize;
+    const x2 = x2Rem * remSize;
+    const y2 = y2Rem * remSize;
+
+    const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+
+    document.documentElement.style.setProperty(`--connector-${orb1}-${orb2}-length`, `${length}px`);
+    document.documentElement.style.setProperty(`--connector-${orb1}-${orb2}-angle`, `${angle}deg`);
+}
+
+function updateAllConnectors() {
+    for(const connectedNode of connectedNodes){
+        updateConnector(connectedNode[0] , connectedNode[1])
+    }
 }
