@@ -217,9 +217,41 @@ h1 {
   z-index: 1;
 }
 
-.images {
+.face {
+  width: 400px;
+  max-width: 100%;
+  margin: 50px auto 10px auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.eyes {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.eye {
+  width: 30px;
+  height: 30px;
+  background-color: yellow;
+}
+
+.nose {
+  width: 30px;
+  height: 30px;
+  background: orange;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+}
+
+.mouth {
   width: 90px;
-  height: 90px;
+  height: 50px;
   margin: 20px;
   left: 50%;
   transform: translate(calc(-50% - 20px), 0);
@@ -474,7 +506,7 @@ h1 {
   background: black;
   transform-origin: 0 0;
   z-index: -1;
-  transition: top 0.3s ease, left 0.3s ease;
+  transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, transform 0.3s ease;
 }
 
 .connector-0-0 {

@@ -46,8 +46,8 @@ const mouthDuration = {
 
 const connectedNodes = [
     [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12], [0,25],[12,32],
-    [13,14],[14,15],[15,16],[16,17],[17,18],
-    [19,20],[20,21],[21,22],[22,23],[23,24],
+    [13,14],[14,15],[15,16],[16,17],[17,18], [13,19],[18,24] ,[1,13],[2,13],[3,14],[4,15], [8,16],[9,17],[10,18],[11,18],
+    [19,20],[20,21],[21,22],[22,23],[23,24], [19,26],[19,27],[20,27],[21,28], [22,29],[23,30],[24,30],[24,31],
     [25,26],[26,27],[27,28],[28,29],[29,30],[30,31],[31,32]
 ]
 
@@ -130,7 +130,7 @@ addEventListener("DOMContentLoaded", async function() {
 
 // add the mouths to the screen
 function addMouths() {
-    const outputDiv = document.getElementById('images')
+    const outputDiv = document.getElementById('mouth')
 
     // Orbs 0-12: Top outer lip (12 points)
     // Orbs 13-18: Upper inner lip (6 points)
