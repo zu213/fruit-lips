@@ -153,16 +153,6 @@
   --orb-30-y: 0px;
 }
 
-:root {
-  --orb-31-x: 0px;
-  --orb-31-y: 0px;
-}
-
-:root {
-  --orb-32-x: 0px;
-  --orb-32-y: 0px;
-}
-
 body {
   text-align: center;
   background-color: #f1f1f1;
@@ -482,16 +472,6 @@ h1 {
   left: var(--orb-30-x);
 }
 
-.orb-31 {
-  top: var(--orb-31-y);
-  left: var(--orb-31-x);
-}
-
-.orb-32 {
-  top: var(--orb-32-y);
-  left: var(--orb-32-x);
-}
-
 .top-lip-outer, .bottom-lip-outer {
   background-image: url("./images/pear.png");
 }
@@ -726,20 +706,6 @@ h1 {
   transform: rotate(var(--connector-0-30-angle, 0deg));
 }
 
-.connector-0-31 {
-  top: calc(var(--orb-0-y) + 10px);
-  left: calc(var(--orb-0-x) + 10px);
-  width: var(--connector-0-31-length, 0px);
-  transform: rotate(var(--connector-0-31-angle, 0deg));
-}
-
-.connector-0-32 {
-  top: calc(var(--orb-0-y) + 10px);
-  left: calc(var(--orb-0-x) + 10px);
-  width: var(--connector-0-32-length, 0px);
-  transform: rotate(var(--connector-0-32-angle, 0deg));
-}
-
 .connector-1-0 {
   top: calc(var(--orb-1-y) + 10px);
   left: calc(var(--orb-1-x) + 10px);
@@ -955,20 +921,6 @@ h1 {
   left: calc(var(--orb-1-x) + 10px);
   width: var(--connector-1-30-length, 0px);
   transform: rotate(var(--connector-1-30-angle, 0deg));
-}
-
-.connector-1-31 {
-  top: calc(var(--orb-1-y) + 10px);
-  left: calc(var(--orb-1-x) + 10px);
-  width: var(--connector-1-31-length, 0px);
-  transform: rotate(var(--connector-1-31-angle, 0deg));
-}
-
-.connector-1-32 {
-  top: calc(var(--orb-1-y) + 10px);
-  left: calc(var(--orb-1-x) + 10px);
-  width: var(--connector-1-32-length, 0px);
-  transform: rotate(var(--connector-1-32-angle, 0deg));
 }
 
 .connector-2-0 {
@@ -1188,20 +1140,6 @@ h1 {
   transform: rotate(var(--connector-2-30-angle, 0deg));
 }
 
-.connector-2-31 {
-  top: calc(var(--orb-2-y) + 10px);
-  left: calc(var(--orb-2-x) + 10px);
-  width: var(--connector-2-31-length, 0px);
-  transform: rotate(var(--connector-2-31-angle, 0deg));
-}
-
-.connector-2-32 {
-  top: calc(var(--orb-2-y) + 10px);
-  left: calc(var(--orb-2-x) + 10px);
-  width: var(--connector-2-32-length, 0px);
-  transform: rotate(var(--connector-2-32-angle, 0deg));
-}
-
 .connector-3-0 {
   top: calc(var(--orb-3-y) + 10px);
   left: calc(var(--orb-3-x) + 10px);
@@ -1417,20 +1355,6 @@ h1 {
   left: calc(var(--orb-3-x) + 10px);
   width: var(--connector-3-30-length, 0px);
   transform: rotate(var(--connector-3-30-angle, 0deg));
-}
-
-.connector-3-31 {
-  top: calc(var(--orb-3-y) + 10px);
-  left: calc(var(--orb-3-x) + 10px);
-  width: var(--connector-3-31-length, 0px);
-  transform: rotate(var(--connector-3-31-angle, 0deg));
-}
-
-.connector-3-32 {
-  top: calc(var(--orb-3-y) + 10px);
-  left: calc(var(--orb-3-x) + 10px);
-  width: var(--connector-3-32-length, 0px);
-  transform: rotate(var(--connector-3-32-angle, 0deg));
 }
 
 .connector-4-0 {
@@ -1650,20 +1574,6 @@ h1 {
   transform: rotate(var(--connector-4-30-angle, 0deg));
 }
 
-.connector-4-31 {
-  top: calc(var(--orb-4-y) + 10px);
-  left: calc(var(--orb-4-x) + 10px);
-  width: var(--connector-4-31-length, 0px);
-  transform: rotate(var(--connector-4-31-angle, 0deg));
-}
-
-.connector-4-32 {
-  top: calc(var(--orb-4-y) + 10px);
-  left: calc(var(--orb-4-x) + 10px);
-  width: var(--connector-4-32-length, 0px);
-  transform: rotate(var(--connector-4-32-angle, 0deg));
-}
-
 .connector-5-0 {
   top: calc(var(--orb-5-y) + 10px);
   left: calc(var(--orb-5-x) + 10px);
@@ -1879,20 +1789,6 @@ h1 {
   left: calc(var(--orb-5-x) + 10px);
   width: var(--connector-5-30-length, 0px);
   transform: rotate(var(--connector-5-30-angle, 0deg));
-}
-
-.connector-5-31 {
-  top: calc(var(--orb-5-y) + 10px);
-  left: calc(var(--orb-5-x) + 10px);
-  width: var(--connector-5-31-length, 0px);
-  transform: rotate(var(--connector-5-31-angle, 0deg));
-}
-
-.connector-5-32 {
-  top: calc(var(--orb-5-y) + 10px);
-  left: calc(var(--orb-5-x) + 10px);
-  width: var(--connector-5-32-length, 0px);
-  transform: rotate(var(--connector-5-32-angle, 0deg));
 }
 
 .connector-6-0 {
@@ -2112,20 +2008,6 @@ h1 {
   transform: rotate(var(--connector-6-30-angle, 0deg));
 }
 
-.connector-6-31 {
-  top: calc(var(--orb-6-y) + 10px);
-  left: calc(var(--orb-6-x) + 10px);
-  width: var(--connector-6-31-length, 0px);
-  transform: rotate(var(--connector-6-31-angle, 0deg));
-}
-
-.connector-6-32 {
-  top: calc(var(--orb-6-y) + 10px);
-  left: calc(var(--orb-6-x) + 10px);
-  width: var(--connector-6-32-length, 0px);
-  transform: rotate(var(--connector-6-32-angle, 0deg));
-}
-
 .connector-7-0 {
   top: calc(var(--orb-7-y) + 10px);
   left: calc(var(--orb-7-x) + 10px);
@@ -2341,20 +2223,6 @@ h1 {
   left: calc(var(--orb-7-x) + 10px);
   width: var(--connector-7-30-length, 0px);
   transform: rotate(var(--connector-7-30-angle, 0deg));
-}
-
-.connector-7-31 {
-  top: calc(var(--orb-7-y) + 10px);
-  left: calc(var(--orb-7-x) + 10px);
-  width: var(--connector-7-31-length, 0px);
-  transform: rotate(var(--connector-7-31-angle, 0deg));
-}
-
-.connector-7-32 {
-  top: calc(var(--orb-7-y) + 10px);
-  left: calc(var(--orb-7-x) + 10px);
-  width: var(--connector-7-32-length, 0px);
-  transform: rotate(var(--connector-7-32-angle, 0deg));
 }
 
 .connector-8-0 {
@@ -2574,20 +2442,6 @@ h1 {
   transform: rotate(var(--connector-8-30-angle, 0deg));
 }
 
-.connector-8-31 {
-  top: calc(var(--orb-8-y) + 10px);
-  left: calc(var(--orb-8-x) + 10px);
-  width: var(--connector-8-31-length, 0px);
-  transform: rotate(var(--connector-8-31-angle, 0deg));
-}
-
-.connector-8-32 {
-  top: calc(var(--orb-8-y) + 10px);
-  left: calc(var(--orb-8-x) + 10px);
-  width: var(--connector-8-32-length, 0px);
-  transform: rotate(var(--connector-8-32-angle, 0deg));
-}
-
 .connector-9-0 {
   top: calc(var(--orb-9-y) + 10px);
   left: calc(var(--orb-9-x) + 10px);
@@ -2803,20 +2657,6 @@ h1 {
   left: calc(var(--orb-9-x) + 10px);
   width: var(--connector-9-30-length, 0px);
   transform: rotate(var(--connector-9-30-angle, 0deg));
-}
-
-.connector-9-31 {
-  top: calc(var(--orb-9-y) + 10px);
-  left: calc(var(--orb-9-x) + 10px);
-  width: var(--connector-9-31-length, 0px);
-  transform: rotate(var(--connector-9-31-angle, 0deg));
-}
-
-.connector-9-32 {
-  top: calc(var(--orb-9-y) + 10px);
-  left: calc(var(--orb-9-x) + 10px);
-  width: var(--connector-9-32-length, 0px);
-  transform: rotate(var(--connector-9-32-angle, 0deg));
 }
 
 .connector-10-0 {
@@ -3036,20 +2876,6 @@ h1 {
   transform: rotate(var(--connector-10-30-angle, 0deg));
 }
 
-.connector-10-31 {
-  top: calc(var(--orb-10-y) + 10px);
-  left: calc(var(--orb-10-x) + 10px);
-  width: var(--connector-10-31-length, 0px);
-  transform: rotate(var(--connector-10-31-angle, 0deg));
-}
-
-.connector-10-32 {
-  top: calc(var(--orb-10-y) + 10px);
-  left: calc(var(--orb-10-x) + 10px);
-  width: var(--connector-10-32-length, 0px);
-  transform: rotate(var(--connector-10-32-angle, 0deg));
-}
-
 .connector-11-0 {
   top: calc(var(--orb-11-y) + 10px);
   left: calc(var(--orb-11-x) + 10px);
@@ -3265,20 +3091,6 @@ h1 {
   left: calc(var(--orb-11-x) + 10px);
   width: var(--connector-11-30-length, 0px);
   transform: rotate(var(--connector-11-30-angle, 0deg));
-}
-
-.connector-11-31 {
-  top: calc(var(--orb-11-y) + 10px);
-  left: calc(var(--orb-11-x) + 10px);
-  width: var(--connector-11-31-length, 0px);
-  transform: rotate(var(--connector-11-31-angle, 0deg));
-}
-
-.connector-11-32 {
-  top: calc(var(--orb-11-y) + 10px);
-  left: calc(var(--orb-11-x) + 10px);
-  width: var(--connector-11-32-length, 0px);
-  transform: rotate(var(--connector-11-32-angle, 0deg));
 }
 
 .connector-12-0 {
@@ -3498,20 +3310,6 @@ h1 {
   transform: rotate(var(--connector-12-30-angle, 0deg));
 }
 
-.connector-12-31 {
-  top: calc(var(--orb-12-y) + 10px);
-  left: calc(var(--orb-12-x) + 10px);
-  width: var(--connector-12-31-length, 0px);
-  transform: rotate(var(--connector-12-31-angle, 0deg));
-}
-
-.connector-12-32 {
-  top: calc(var(--orb-12-y) + 10px);
-  left: calc(var(--orb-12-x) + 10px);
-  width: var(--connector-12-32-length, 0px);
-  transform: rotate(var(--connector-12-32-angle, 0deg));
-}
-
 .connector-13-0 {
   top: calc(var(--orb-13-y) + 10px);
   left: calc(var(--orb-13-x) + 10px);
@@ -3727,20 +3525,6 @@ h1 {
   left: calc(var(--orb-13-x) + 10px);
   width: var(--connector-13-30-length, 0px);
   transform: rotate(var(--connector-13-30-angle, 0deg));
-}
-
-.connector-13-31 {
-  top: calc(var(--orb-13-y) + 10px);
-  left: calc(var(--orb-13-x) + 10px);
-  width: var(--connector-13-31-length, 0px);
-  transform: rotate(var(--connector-13-31-angle, 0deg));
-}
-
-.connector-13-32 {
-  top: calc(var(--orb-13-y) + 10px);
-  left: calc(var(--orb-13-x) + 10px);
-  width: var(--connector-13-32-length, 0px);
-  transform: rotate(var(--connector-13-32-angle, 0deg));
 }
 
 .connector-14-0 {
@@ -3960,20 +3744,6 @@ h1 {
   transform: rotate(var(--connector-14-30-angle, 0deg));
 }
 
-.connector-14-31 {
-  top: calc(var(--orb-14-y) + 10px);
-  left: calc(var(--orb-14-x) + 10px);
-  width: var(--connector-14-31-length, 0px);
-  transform: rotate(var(--connector-14-31-angle, 0deg));
-}
-
-.connector-14-32 {
-  top: calc(var(--orb-14-y) + 10px);
-  left: calc(var(--orb-14-x) + 10px);
-  width: var(--connector-14-32-length, 0px);
-  transform: rotate(var(--connector-14-32-angle, 0deg));
-}
-
 .connector-15-0 {
   top: calc(var(--orb-15-y) + 10px);
   left: calc(var(--orb-15-x) + 10px);
@@ -4189,20 +3959,6 @@ h1 {
   left: calc(var(--orb-15-x) + 10px);
   width: var(--connector-15-30-length, 0px);
   transform: rotate(var(--connector-15-30-angle, 0deg));
-}
-
-.connector-15-31 {
-  top: calc(var(--orb-15-y) + 10px);
-  left: calc(var(--orb-15-x) + 10px);
-  width: var(--connector-15-31-length, 0px);
-  transform: rotate(var(--connector-15-31-angle, 0deg));
-}
-
-.connector-15-32 {
-  top: calc(var(--orb-15-y) + 10px);
-  left: calc(var(--orb-15-x) + 10px);
-  width: var(--connector-15-32-length, 0px);
-  transform: rotate(var(--connector-15-32-angle, 0deg));
 }
 
 .connector-16-0 {
@@ -4422,20 +4178,6 @@ h1 {
   transform: rotate(var(--connector-16-30-angle, 0deg));
 }
 
-.connector-16-31 {
-  top: calc(var(--orb-16-y) + 10px);
-  left: calc(var(--orb-16-x) + 10px);
-  width: var(--connector-16-31-length, 0px);
-  transform: rotate(var(--connector-16-31-angle, 0deg));
-}
-
-.connector-16-32 {
-  top: calc(var(--orb-16-y) + 10px);
-  left: calc(var(--orb-16-x) + 10px);
-  width: var(--connector-16-32-length, 0px);
-  transform: rotate(var(--connector-16-32-angle, 0deg));
-}
-
 .connector-17-0 {
   top: calc(var(--orb-17-y) + 10px);
   left: calc(var(--orb-17-x) + 10px);
@@ -4651,20 +4393,6 @@ h1 {
   left: calc(var(--orb-17-x) + 10px);
   width: var(--connector-17-30-length, 0px);
   transform: rotate(var(--connector-17-30-angle, 0deg));
-}
-
-.connector-17-31 {
-  top: calc(var(--orb-17-y) + 10px);
-  left: calc(var(--orb-17-x) + 10px);
-  width: var(--connector-17-31-length, 0px);
-  transform: rotate(var(--connector-17-31-angle, 0deg));
-}
-
-.connector-17-32 {
-  top: calc(var(--orb-17-y) + 10px);
-  left: calc(var(--orb-17-x) + 10px);
-  width: var(--connector-17-32-length, 0px);
-  transform: rotate(var(--connector-17-32-angle, 0deg));
 }
 
 .connector-18-0 {
@@ -4884,20 +4612,6 @@ h1 {
   transform: rotate(var(--connector-18-30-angle, 0deg));
 }
 
-.connector-18-31 {
-  top: calc(var(--orb-18-y) + 10px);
-  left: calc(var(--orb-18-x) + 10px);
-  width: var(--connector-18-31-length, 0px);
-  transform: rotate(var(--connector-18-31-angle, 0deg));
-}
-
-.connector-18-32 {
-  top: calc(var(--orb-18-y) + 10px);
-  left: calc(var(--orb-18-x) + 10px);
-  width: var(--connector-18-32-length, 0px);
-  transform: rotate(var(--connector-18-32-angle, 0deg));
-}
-
 .connector-19-0 {
   top: calc(var(--orb-19-y) + 10px);
   left: calc(var(--orb-19-x) + 10px);
@@ -5113,20 +4827,6 @@ h1 {
   left: calc(var(--orb-19-x) + 10px);
   width: var(--connector-19-30-length, 0px);
   transform: rotate(var(--connector-19-30-angle, 0deg));
-}
-
-.connector-19-31 {
-  top: calc(var(--orb-19-y) + 10px);
-  left: calc(var(--orb-19-x) + 10px);
-  width: var(--connector-19-31-length, 0px);
-  transform: rotate(var(--connector-19-31-angle, 0deg));
-}
-
-.connector-19-32 {
-  top: calc(var(--orb-19-y) + 10px);
-  left: calc(var(--orb-19-x) + 10px);
-  width: var(--connector-19-32-length, 0px);
-  transform: rotate(var(--connector-19-32-angle, 0deg));
 }
 
 .connector-20-0 {
@@ -5346,20 +5046,6 @@ h1 {
   transform: rotate(var(--connector-20-30-angle, 0deg));
 }
 
-.connector-20-31 {
-  top: calc(var(--orb-20-y) + 10px);
-  left: calc(var(--orb-20-x) + 10px);
-  width: var(--connector-20-31-length, 0px);
-  transform: rotate(var(--connector-20-31-angle, 0deg));
-}
-
-.connector-20-32 {
-  top: calc(var(--orb-20-y) + 10px);
-  left: calc(var(--orb-20-x) + 10px);
-  width: var(--connector-20-32-length, 0px);
-  transform: rotate(var(--connector-20-32-angle, 0deg));
-}
-
 .connector-21-0 {
   top: calc(var(--orb-21-y) + 10px);
   left: calc(var(--orb-21-x) + 10px);
@@ -5575,20 +5261,6 @@ h1 {
   left: calc(var(--orb-21-x) + 10px);
   width: var(--connector-21-30-length, 0px);
   transform: rotate(var(--connector-21-30-angle, 0deg));
-}
-
-.connector-21-31 {
-  top: calc(var(--orb-21-y) + 10px);
-  left: calc(var(--orb-21-x) + 10px);
-  width: var(--connector-21-31-length, 0px);
-  transform: rotate(var(--connector-21-31-angle, 0deg));
-}
-
-.connector-21-32 {
-  top: calc(var(--orb-21-y) + 10px);
-  left: calc(var(--orb-21-x) + 10px);
-  width: var(--connector-21-32-length, 0px);
-  transform: rotate(var(--connector-21-32-angle, 0deg));
 }
 
 .connector-22-0 {
@@ -5808,20 +5480,6 @@ h1 {
   transform: rotate(var(--connector-22-30-angle, 0deg));
 }
 
-.connector-22-31 {
-  top: calc(var(--orb-22-y) + 10px);
-  left: calc(var(--orb-22-x) + 10px);
-  width: var(--connector-22-31-length, 0px);
-  transform: rotate(var(--connector-22-31-angle, 0deg));
-}
-
-.connector-22-32 {
-  top: calc(var(--orb-22-y) + 10px);
-  left: calc(var(--orb-22-x) + 10px);
-  width: var(--connector-22-32-length, 0px);
-  transform: rotate(var(--connector-22-32-angle, 0deg));
-}
-
 .connector-23-0 {
   top: calc(var(--orb-23-y) + 10px);
   left: calc(var(--orb-23-x) + 10px);
@@ -6037,20 +5695,6 @@ h1 {
   left: calc(var(--orb-23-x) + 10px);
   width: var(--connector-23-30-length, 0px);
   transform: rotate(var(--connector-23-30-angle, 0deg));
-}
-
-.connector-23-31 {
-  top: calc(var(--orb-23-y) + 10px);
-  left: calc(var(--orb-23-x) + 10px);
-  width: var(--connector-23-31-length, 0px);
-  transform: rotate(var(--connector-23-31-angle, 0deg));
-}
-
-.connector-23-32 {
-  top: calc(var(--orb-23-y) + 10px);
-  left: calc(var(--orb-23-x) + 10px);
-  width: var(--connector-23-32-length, 0px);
-  transform: rotate(var(--connector-23-32-angle, 0deg));
 }
 
 .connector-24-0 {
@@ -6270,20 +5914,6 @@ h1 {
   transform: rotate(var(--connector-24-30-angle, 0deg));
 }
 
-.connector-24-31 {
-  top: calc(var(--orb-24-y) + 10px);
-  left: calc(var(--orb-24-x) + 10px);
-  width: var(--connector-24-31-length, 0px);
-  transform: rotate(var(--connector-24-31-angle, 0deg));
-}
-
-.connector-24-32 {
-  top: calc(var(--orb-24-y) + 10px);
-  left: calc(var(--orb-24-x) + 10px);
-  width: var(--connector-24-32-length, 0px);
-  transform: rotate(var(--connector-24-32-angle, 0deg));
-}
-
 .connector-25-0 {
   top: calc(var(--orb-25-y) + 10px);
   left: calc(var(--orb-25-x) + 10px);
@@ -6499,20 +6129,6 @@ h1 {
   left: calc(var(--orb-25-x) + 10px);
   width: var(--connector-25-30-length, 0px);
   transform: rotate(var(--connector-25-30-angle, 0deg));
-}
-
-.connector-25-31 {
-  top: calc(var(--orb-25-y) + 10px);
-  left: calc(var(--orb-25-x) + 10px);
-  width: var(--connector-25-31-length, 0px);
-  transform: rotate(var(--connector-25-31-angle, 0deg));
-}
-
-.connector-25-32 {
-  top: calc(var(--orb-25-y) + 10px);
-  left: calc(var(--orb-25-x) + 10px);
-  width: var(--connector-25-32-length, 0px);
-  transform: rotate(var(--connector-25-32-angle, 0deg));
 }
 
 .connector-26-0 {
@@ -6732,20 +6348,6 @@ h1 {
   transform: rotate(var(--connector-26-30-angle, 0deg));
 }
 
-.connector-26-31 {
-  top: calc(var(--orb-26-y) + 10px);
-  left: calc(var(--orb-26-x) + 10px);
-  width: var(--connector-26-31-length, 0px);
-  transform: rotate(var(--connector-26-31-angle, 0deg));
-}
-
-.connector-26-32 {
-  top: calc(var(--orb-26-y) + 10px);
-  left: calc(var(--orb-26-x) + 10px);
-  width: var(--connector-26-32-length, 0px);
-  transform: rotate(var(--connector-26-32-angle, 0deg));
-}
-
 .connector-27-0 {
   top: calc(var(--orb-27-y) + 10px);
   left: calc(var(--orb-27-x) + 10px);
@@ -6961,20 +6563,6 @@ h1 {
   left: calc(var(--orb-27-x) + 10px);
   width: var(--connector-27-30-length, 0px);
   transform: rotate(var(--connector-27-30-angle, 0deg));
-}
-
-.connector-27-31 {
-  top: calc(var(--orb-27-y) + 10px);
-  left: calc(var(--orb-27-x) + 10px);
-  width: var(--connector-27-31-length, 0px);
-  transform: rotate(var(--connector-27-31-angle, 0deg));
-}
-
-.connector-27-32 {
-  top: calc(var(--orb-27-y) + 10px);
-  left: calc(var(--orb-27-x) + 10px);
-  width: var(--connector-27-32-length, 0px);
-  transform: rotate(var(--connector-27-32-angle, 0deg));
 }
 
 .connector-28-0 {
@@ -7194,20 +6782,6 @@ h1 {
   transform: rotate(var(--connector-28-30-angle, 0deg));
 }
 
-.connector-28-31 {
-  top: calc(var(--orb-28-y) + 10px);
-  left: calc(var(--orb-28-x) + 10px);
-  width: var(--connector-28-31-length, 0px);
-  transform: rotate(var(--connector-28-31-angle, 0deg));
-}
-
-.connector-28-32 {
-  top: calc(var(--orb-28-y) + 10px);
-  left: calc(var(--orb-28-x) + 10px);
-  width: var(--connector-28-32-length, 0px);
-  transform: rotate(var(--connector-28-32-angle, 0deg));
-}
-
 .connector-29-0 {
   top: calc(var(--orb-29-y) + 10px);
   left: calc(var(--orb-29-x) + 10px);
@@ -7425,20 +6999,6 @@ h1 {
   transform: rotate(var(--connector-29-30-angle, 0deg));
 }
 
-.connector-29-31 {
-  top: calc(var(--orb-29-y) + 10px);
-  left: calc(var(--orb-29-x) + 10px);
-  width: var(--connector-29-31-length, 0px);
-  transform: rotate(var(--connector-29-31-angle, 0deg));
-}
-
-.connector-29-32 {
-  top: calc(var(--orb-29-y) + 10px);
-  left: calc(var(--orb-29-x) + 10px);
-  width: var(--connector-29-32-length, 0px);
-  transform: rotate(var(--connector-29-32-angle, 0deg));
-}
-
 .connector-30-0 {
   top: calc(var(--orb-30-y) + 10px);
   left: calc(var(--orb-30-x) + 10px);
@@ -7654,482 +7214,6 @@ h1 {
   left: calc(var(--orb-30-x) + 10px);
   width: var(--connector-30-30-length, 0px);
   transform: rotate(var(--connector-30-30-angle, 0deg));
-}
-
-.connector-30-31 {
-  top: calc(var(--orb-30-y) + 10px);
-  left: calc(var(--orb-30-x) + 10px);
-  width: var(--connector-30-31-length, 0px);
-  transform: rotate(var(--connector-30-31-angle, 0deg));
-}
-
-.connector-30-32 {
-  top: calc(var(--orb-30-y) + 10px);
-  left: calc(var(--orb-30-x) + 10px);
-  width: var(--connector-30-32-length, 0px);
-  transform: rotate(var(--connector-30-32-angle, 0deg));
-}
-
-.connector-31-0 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-0-length, 0px);
-  transform: rotate(var(--connector-31-0-angle, 0deg));
-}
-
-.connector-31-1 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-1-length, 0px);
-  transform: rotate(var(--connector-31-1-angle, 0deg));
-}
-
-.connector-31-2 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-2-length, 0px);
-  transform: rotate(var(--connector-31-2-angle, 0deg));
-}
-
-.connector-31-3 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-3-length, 0px);
-  transform: rotate(var(--connector-31-3-angle, 0deg));
-}
-
-.connector-31-4 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-4-length, 0px);
-  transform: rotate(var(--connector-31-4-angle, 0deg));
-}
-
-.connector-31-5 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-5-length, 0px);
-  transform: rotate(var(--connector-31-5-angle, 0deg));
-}
-
-.connector-31-6 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-6-length, 0px);
-  transform: rotate(var(--connector-31-6-angle, 0deg));
-}
-
-.connector-31-7 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-7-length, 0px);
-  transform: rotate(var(--connector-31-7-angle, 0deg));
-}
-
-.connector-31-8 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-8-length, 0px);
-  transform: rotate(var(--connector-31-8-angle, 0deg));
-}
-
-.connector-31-9 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-9-length, 0px);
-  transform: rotate(var(--connector-31-9-angle, 0deg));
-}
-
-.connector-31-10 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-10-length, 0px);
-  transform: rotate(var(--connector-31-10-angle, 0deg));
-}
-
-.connector-31-11 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-11-length, 0px);
-  transform: rotate(var(--connector-31-11-angle, 0deg));
-}
-
-.connector-31-12 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-12-length, 0px);
-  transform: rotate(var(--connector-31-12-angle, 0deg));
-}
-
-.connector-31-13 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-13-length, 0px);
-  transform: rotate(var(--connector-31-13-angle, 0deg));
-}
-
-.connector-31-14 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-14-length, 0px);
-  transform: rotate(var(--connector-31-14-angle, 0deg));
-}
-
-.connector-31-15 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-15-length, 0px);
-  transform: rotate(var(--connector-31-15-angle, 0deg));
-}
-
-.connector-31-16 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-16-length, 0px);
-  transform: rotate(var(--connector-31-16-angle, 0deg));
-}
-
-.connector-31-17 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-17-length, 0px);
-  transform: rotate(var(--connector-31-17-angle, 0deg));
-}
-
-.connector-31-18 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-18-length, 0px);
-  transform: rotate(var(--connector-31-18-angle, 0deg));
-}
-
-.connector-31-19 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-19-length, 0px);
-  transform: rotate(var(--connector-31-19-angle, 0deg));
-}
-
-.connector-31-20 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-20-length, 0px);
-  transform: rotate(var(--connector-31-20-angle, 0deg));
-}
-
-.connector-31-21 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-21-length, 0px);
-  transform: rotate(var(--connector-31-21-angle, 0deg));
-}
-
-.connector-31-22 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-22-length, 0px);
-  transform: rotate(var(--connector-31-22-angle, 0deg));
-}
-
-.connector-31-23 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-23-length, 0px);
-  transform: rotate(var(--connector-31-23-angle, 0deg));
-}
-
-.connector-31-24 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-24-length, 0px);
-  transform: rotate(var(--connector-31-24-angle, 0deg));
-}
-
-.connector-31-25 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-25-length, 0px);
-  transform: rotate(var(--connector-31-25-angle, 0deg));
-}
-
-.connector-31-26 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-26-length, 0px);
-  transform: rotate(var(--connector-31-26-angle, 0deg));
-}
-
-.connector-31-27 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-27-length, 0px);
-  transform: rotate(var(--connector-31-27-angle, 0deg));
-}
-
-.connector-31-28 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-28-length, 0px);
-  transform: rotate(var(--connector-31-28-angle, 0deg));
-}
-
-.connector-31-29 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-29-length, 0px);
-  transform: rotate(var(--connector-31-29-angle, 0deg));
-}
-
-.connector-31-30 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-30-length, 0px);
-  transform: rotate(var(--connector-31-30-angle, 0deg));
-}
-
-.connector-31-31 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-31-length, 0px);
-  transform: rotate(var(--connector-31-31-angle, 0deg));
-}
-
-.connector-31-32 {
-  top: calc(var(--orb-31-y) + 10px);
-  left: calc(var(--orb-31-x) + 10px);
-  width: var(--connector-31-32-length, 0px);
-  transform: rotate(var(--connector-31-32-angle, 0deg));
-}
-
-.connector-32-0 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-0-length, 0px);
-  transform: rotate(var(--connector-32-0-angle, 0deg));
-}
-
-.connector-32-1 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-1-length, 0px);
-  transform: rotate(var(--connector-32-1-angle, 0deg));
-}
-
-.connector-32-2 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-2-length, 0px);
-  transform: rotate(var(--connector-32-2-angle, 0deg));
-}
-
-.connector-32-3 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-3-length, 0px);
-  transform: rotate(var(--connector-32-3-angle, 0deg));
-}
-
-.connector-32-4 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-4-length, 0px);
-  transform: rotate(var(--connector-32-4-angle, 0deg));
-}
-
-.connector-32-5 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-5-length, 0px);
-  transform: rotate(var(--connector-32-5-angle, 0deg));
-}
-
-.connector-32-6 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-6-length, 0px);
-  transform: rotate(var(--connector-32-6-angle, 0deg));
-}
-
-.connector-32-7 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-7-length, 0px);
-  transform: rotate(var(--connector-32-7-angle, 0deg));
-}
-
-.connector-32-8 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-8-length, 0px);
-  transform: rotate(var(--connector-32-8-angle, 0deg));
-}
-
-.connector-32-9 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-9-length, 0px);
-  transform: rotate(var(--connector-32-9-angle, 0deg));
-}
-
-.connector-32-10 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-10-length, 0px);
-  transform: rotate(var(--connector-32-10-angle, 0deg));
-}
-
-.connector-32-11 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-11-length, 0px);
-  transform: rotate(var(--connector-32-11-angle, 0deg));
-}
-
-.connector-32-12 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-12-length, 0px);
-  transform: rotate(var(--connector-32-12-angle, 0deg));
-}
-
-.connector-32-13 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-13-length, 0px);
-  transform: rotate(var(--connector-32-13-angle, 0deg));
-}
-
-.connector-32-14 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-14-length, 0px);
-  transform: rotate(var(--connector-32-14-angle, 0deg));
-}
-
-.connector-32-15 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-15-length, 0px);
-  transform: rotate(var(--connector-32-15-angle, 0deg));
-}
-
-.connector-32-16 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-16-length, 0px);
-  transform: rotate(var(--connector-32-16-angle, 0deg));
-}
-
-.connector-32-17 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-17-length, 0px);
-  transform: rotate(var(--connector-32-17-angle, 0deg));
-}
-
-.connector-32-18 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-18-length, 0px);
-  transform: rotate(var(--connector-32-18-angle, 0deg));
-}
-
-.connector-32-19 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-19-length, 0px);
-  transform: rotate(var(--connector-32-19-angle, 0deg));
-}
-
-.connector-32-20 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-20-length, 0px);
-  transform: rotate(var(--connector-32-20-angle, 0deg));
-}
-
-.connector-32-21 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-21-length, 0px);
-  transform: rotate(var(--connector-32-21-angle, 0deg));
-}
-
-.connector-32-22 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-22-length, 0px);
-  transform: rotate(var(--connector-32-22-angle, 0deg));
-}
-
-.connector-32-23 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-23-length, 0px);
-  transform: rotate(var(--connector-32-23-angle, 0deg));
-}
-
-.connector-32-24 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-24-length, 0px);
-  transform: rotate(var(--connector-32-24-angle, 0deg));
-}
-
-.connector-32-25 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-25-length, 0px);
-  transform: rotate(var(--connector-32-25-angle, 0deg));
-}
-
-.connector-32-26 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-26-length, 0px);
-  transform: rotate(var(--connector-32-26-angle, 0deg));
-}
-
-.connector-32-27 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-27-length, 0px);
-  transform: rotate(var(--connector-32-27-angle, 0deg));
-}
-
-.connector-32-28 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-28-length, 0px);
-  transform: rotate(var(--connector-32-28-angle, 0deg));
-}
-
-.connector-32-29 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-29-length, 0px);
-  transform: rotate(var(--connector-32-29-angle, 0deg));
-}
-
-.connector-32-30 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-30-length, 0px);
-  transform: rotate(var(--connector-32-30-angle, 0deg));
-}
-
-.connector-32-31 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-31-length, 0px);
-  transform: rotate(var(--connector-32-31-angle, 0deg));
-}
-
-.connector-32-32 {
-  top: calc(var(--orb-32-y) + 10px);
-  left: calc(var(--orb-32-x) + 10px);
-  width: var(--connector-32-32-length, 0px);
-  transform: rotate(var(--connector-32-32-angle, 0deg));
 }
 
 /*# sourceMappingURL=fruit-lips2.css.map */

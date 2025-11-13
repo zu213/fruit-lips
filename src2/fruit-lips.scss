@@ -1,4 +1,4 @@
-@for $i from 0 through 32 {
+@for $i from 0 through 30 {
   :root {
     --orb-#{$i}-x: 0px;
     --orb-#{$i}-y: 0px;
@@ -173,7 +173,7 @@ h1 {
     background-position: center;
 }
 
-@for $i from 0 through 32 {
+@for $i from 0 through 30 {
   .orb-#{$i} {
     top: var(--orb-#{$i}-y);
     left: var(--orb-#{$i}-x);
@@ -197,8 +197,8 @@ h1 {
     transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, transform 0.3s ease;
 }
 
-@for $i from 0 through 32 {
-    @for $j from 0 through 32 {
+@for $i from 0 through 30 {
+    @for $j from 0 through 30 {
         .connector-#{$i}-#{$j} {
             top: calc(var(--orb-#{$i}-y) + 10px);
             left: calc(var(--orb-#{$i}-x) + 10px);
