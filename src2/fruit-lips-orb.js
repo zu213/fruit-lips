@@ -19,6 +19,10 @@ const mouthPositions = {
 var recognition
 var orbsData
 
+const mouthPositionSet = new Set(
+  Object.values(mouthPositions).flat()
+)
+
 const mouthPositionLookup = Object.fromEntries(
     Object.entries(mouthPositions).flatMap(([category, values]) =>
         values.map(value => [value, category])
@@ -175,20 +179,16 @@ function textToSyllables(text){
     const syllables = []
     for(var i = 0; i < text.length; i++){
         const letter = text.charAt(i)
-        const nextLetter = text.charAt(i + 1)
+        const twoLetters = letter + text.charAt(i + 1)
 
-        if(i == text.length - 1){
+        if(i == text.length - 1) {
             syllables.push(letter)
-            continue
-        } else if(letter == 'c' && nextLetter == 'h' ||
-            letter == 's' && nextLetter == 'h' ||
-            letter == 't' && nextLetter == 'h' ||
-            letter == 'e' && nextLetter == 'e'){
-                syllables.push(letter + nextLetter)
-                i++
-                continue
+        } else if(mouthPositionSet.has(twoLetters)) {
+            syllables.push(twoLetters)
+            i++
+        } else {
+            syllables.push(letter)
         }
-        syllables.push(letter)
     }
     return syllables
 }
