@@ -2,18 +2,18 @@
 
 // Mouth positions mappings
 const mouthPositions = {
-    pos1: ["a", "e", "i"],
-    pos2: ["b", "m", "p"," "],
-    pos3: ["c", "d", "g", "k", "n", "s", "t", "x", "y", "z", "h"],
-    pos4: ["ch", "sh", "j"],
+    pos1: ["a", "e", "i", "ay", "ow", "in", "er"],
+    pos2: ["b", "m", "p"],
+    pos3: ["c", "d", "g", "k", "n", "s", "t", "x", "y", "z", "h", "ck", "id", "go", "ou", "ld", "to", "ok"],
+    pos4: ["ch", "sh", "j", "er"],
     pos5: ["ee"], // this is messed up
-    pos6: ["f", "v"],
+    pos6: ["f", "v", "an"],
     pos7: ["l"],
-    pos8: ["o"],
-    pos9: ["q", "w"],
-    pos10: ["r"],
+    pos8: ["o", "oo"],
+    pos9: ["q", "w", "wh"],
+    pos10: ["r", "te", "or"],
     pos11: ["th"],
-    pos12: ["u"],
+    pos12: ["u", "wa", ],
 }
 
 var recognition
@@ -34,18 +34,18 @@ function getMouthPosition(input) {
 }
 
 const mouthDuration = {
-    pos1: 120,   // a,e,i - short vowels, quick
-    pos2: 80,    // b,m,p - explosive consonants, very fast
-    pos3: 100,   // c,d,g,k,n,s,t,x,y,z,h - quick consonants
-    pos4: 180,   // ch,sh,j - longer consonants with friction
-    pos5: 160,   // ee - sustained vowel
-    pos6: 120,   // f,v - fricatives, medium speed
-    pos7: 100,   // l - quick liquid consonant
-    pos8: 180,   // o - rounded vowel, slightly longer
-    pos9: 140,   // q,w - semi-vowels
-    pos10: 110,  // r - liquid consonant
-    pos11: 150,  // th - fricative, needs time
-    pos12: 180,  // u - rounded vowel, sustained
+    pos1: 80,   // a,e,i - short vowels, quick
+    pos2: 40,    // b,m,p - explosive consonants, very fast
+    pos3: 60,   // c,d,g,k,n,s,t,x,y,z,h - quick consonants
+    pos4: 130,   // ch,sh,j - longer consonants with friction
+    pos5: 120,   // ee - sustained vowel
+    pos6: 80,   // f,v - fricatives, medium speed
+    pos7: 60,   // l - quick liquid consonant
+    pos8: 140,   // o - rounded vowel, slightly longer
+    pos9: 100,   // q,w - semi-vowels
+    pos10: 70,  // r - liquid consonant
+    pos11: 110,  // th - fricative, needs time
+    pos12: 140,  // u - rounded vowel, sustained
 }
 
 const connectedNodes = [
@@ -164,7 +164,6 @@ function addMouths() {
 
     for(const connectedNode of connectedNodes){
         const connector = document.createElement('div')
-        console.log(connectedNode)
         connector.classList.add('connector')
         connector.classList.add(`connector-${connectedNode[0]}-${connectedNode[1]}`)
         outputDiv.appendChild(connector)
@@ -197,7 +196,10 @@ async function syllablesToMouths(syllables) {
     var counter = 0
     for(const syllable of syllables){
         const pos = getMouthPosition(syllable);
-        if(pos == 0) continue
+        if(pos == 0) {
+            counter++
+            continue
+        }
         var orbCounter = 0
         for(const coords of orbsData[pos]){
             document.documentElement.style.setProperty(`--orb-${orbCounter}-x`, `${coords['x'] + 3}rem`);
