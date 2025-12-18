@@ -2,18 +2,19 @@
 
 // Mouth positions mappings
 const mouthPositions = {
-    pos1: ["a", "e", "i", "ay", "ow", "in", "er"],
-    pos2: ["b", "m", "p"],
-    pos3: ["c", "d", "g", "k", "n", "s", "t", "x", "y", "z", "h", "ck", "id", "go", "ou", "ld", "to", "ok"],
+    pos1: ["a", "e", "i", "ay", "ow", "in", "er", "ea", "as"],
+    pos2: ["b", "m", "p", "be"],
+    pos3: ["c", "d", "g", "k", "n", "s", "t", "x", "y", "z", "h", "ck", "id", "go", "ou", "ld", "to",
+         "ok", "tw", "es", "ke", "gh", "st", "ed", "ht", "se", "ni", "ne"],
     pos4: ["ch", "sh", "j", "er"],
-    pos5: ["ee"], // this is messed up
-    pos6: ["f", "v", "an"],
-    pos7: ["l"],
-    pos8: ["o", "oo"],
-    pos9: ["q", "w", "wh"],
+    pos5: ["ee", "ry", "ea"],
+    pos6: ["f", "v", "an", "ve"],
+    pos7: ["l", "el", "ll"],
+    pos8: ["o", "oo", "oy"],
+    pos9: ["q", "w", "wh", "ew", "on", "ou"],
     pos10: ["r", "te", "or"],
     pos11: ["th"],
-    pos12: ["u", "wa", ],
+    pos12: ["u", "wa", "wan"],
 }
 
 var recognition
