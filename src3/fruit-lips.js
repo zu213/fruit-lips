@@ -64,9 +64,12 @@ function fetchBoard() {
 }
 
 function populateBoard() {
-    const boardDiv = document.querySelector('.board')
+    const boardDiv = document.querySelector('.board-list')
     fetchBoard().then(items => {
-        boardDiv.innerHTML = items
+        items.reverse()
+        const processedItems = items.map(item => `<div class="board-item">${item}</div>`)
+        boardDiv.innerHTML = processedItems.join('')
+        document.querySelector('.board').classList.remove('hidden')
     })
 }
 
@@ -98,9 +101,11 @@ function addMouths() {
         const img = document.createElement('img')
         img.src = `./mouths/pos${i}.png`
         img.classList.add('mouth-image')
+        img.classList.add('hidden')
         img.id = `pos${i}`
         if(i == 2){
             img.classList.add('highlighted')
+            img.classList.remove('hidden')
         }
         outputDiv.appendChild(img)
     }
@@ -133,6 +138,7 @@ async function syllablesToMouths(syllables) {
     const highlightedElements = document.querySelectorAll('.highlighted')
     for(const el of highlightedElements){
         el.classList.remove('highlighted')
+        el.classList.add('hidden')
     }
 
     var counter = 0
@@ -142,16 +148,19 @@ async function syllablesToMouths(syllables) {
         const element = document.getElementById(pos)
         const wordElement = document.getElementById(`syllable-${counter}`)
         element.classList.add('highlighted')
+        element.classList.remove('hidden')
         wordElement.classList.add('embold')
 
         await sleep(getMouthDuration(pos))
         element.classList.remove('highlighted')
+        element.classList.add('hidden')
         wordElement.classList.remove('embold')
         counter++
     }
 
     for(const el of highlightedElements){
         el.classList.add('highlighted')
+        el.classList.remove('hidden')
     }
 }
 

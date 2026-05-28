@@ -45,7 +45,6 @@ h1 {
   }
 
 .mouth-image {
-    position: absolute;
     z-index: 0;
 }
 
@@ -54,12 +53,11 @@ h1 {
 }
 
 .images {
-    width: 90px;
-    height: 90px;
-    margin: 20px;
+    width: 40vw;
+    height: 40vh;
+    margin: 2px;
     left:50%;
     transform: translate(calc(-50% - 20px), 0);
-    padding: 10px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -97,6 +95,10 @@ h1 {
     left: 20%;
 }
 
+.hidden {
+    display: none;
+}
+
 @media only screen and (max-width: 600px) {
     .container {
         width: 90%;
@@ -107,37 +109,4 @@ h1 {
         margin: 5px;
         width: 90%;
     }
-  }
-
-
-.firefox {
-    display: none;
-    padding: 5px;
-}
-
-@-moz-document url-prefix() {
-    .voice-input {
-        display: none;
-    }
-    .firefox {
-        display: block;
-    }
-}
-
-.orb {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    transition: top 0.3s ease, left 0.3s ease;
-    background-image: url('./apple.png');
-    background-size: cover;
-    background-position: center;
-}
-
-.top-lip-outer, .bottom-lip-outer {
-    background-image: url('./pear.png');
-}
-
-.top-lip-inner, .bottom-lip-inner {
-    background-image: url('./apple.png');
 }
