@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-color: #f1f1f1;
+    background-color: #fff;
     font-family: monospace;
 }
 
@@ -33,7 +33,7 @@ h1 {
     font-size: 48px; 
     font-weight: bold; 
     text-align: center; 
-    color: #4f4f4f;
+    color: #171717;
     border-radius: 10px;
     display: inline-block;
 }
@@ -46,6 +46,7 @@ h1 {
 
 .mouth-image {
     z-index: 0;
+    scale: 2.4;
 }
 
 .highlighted {
@@ -53,15 +54,15 @@ h1 {
 }
 
 .images {
-    width: 40vw;
-    height: 40vh;
-    margin: 2px;
-    left:50%;
+    width: 32vw;
+    height: 32vh;
+    left:53%;
     transform: translate(calc(-50% - 20px), 0);
     position: relative;
     display: flex;
     justify-content: center;
     vertical-align: middle;
+    overflow: hidden;
 }
 
 .text-form {

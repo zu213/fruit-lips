@@ -63,6 +63,14 @@ function fetchBoard() {
     .then(res => res.json())
 }
 
+function prependBoardItem(text) {
+    const boardDiv = document.querySelector('.board-list')
+    const el = document.createElement('div')
+    el.classList.add('board-item')
+    el.textContent = text
+    boardDiv.insertBefore(el, boardDiv.firstChild)
+}
+
 function populateBoard() {
     const boardDiv = document.querySelector('.board-list')
     fetchBoard().then(items => {
@@ -83,6 +91,7 @@ addEventListener("DOMContentLoaded", function() {
         let inputText = document.getElementById("textInput").value
         const syllables = textToSyllables(inputText)
         postInputToBoard(inputText)
+        prependBoardItem(inputText)
         addOutputSyllables(syllables)
         syllablesToMouths(syllables)
         const el = document.getElementById('textInput')
