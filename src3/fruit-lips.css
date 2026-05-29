@@ -1,48 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --ink: #1a1a18;
+    --ink-muted: #6b6b65;
+    --surface: #f7f6f3;
+    --line: #d8d6cf;
+    --accent: #b84c2e;
+}
+
 body {
-    text-align: center;
-    background-color: #fff;
-    font-family: monospace;
+    background-color: var(--surface);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    min-height: 100dvh;
+    padding: 0 clamp(1.5rem, 5vw, 6rem);
 }
 
-button {
-    align-items: center;
-    padding: 6px 14px;
-    font-family: monospace;
-    border-radius: 6px;
-    color: #3D3D3D;
-    background: #fff;
-    border: none;
-    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-  
-button:focus {
-    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
-    outline: 0;
-}
-
-form input{
-    width: 60%;
-    height: 1.5em;
-    font-family: monospace;
+/* ── Header ── */
+.site-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding: 2rem 0 1.2rem;
+    margin-bottom: 6rem;
 }
 
 h1 {
-    font-size: 48px; 
-    font-weight: bold; 
-    text-align: center; 
-    color: #171717;
-    border-radius: 10px;
-    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--ink);
 }
 
-@media only screen and (max-width: 450px) {
-    h1 {
-      margin: 5px 0;
-    }
-  }
+.site-header .edition {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+}
+
+/* ── Main layout ── */
+.container {
+    position: relative;
+    width: 60%;
+    left: 20%;
+}
+
+.images {
+    width: 32vw;
+    height: 32vh;
+    left: 53%;
+    transform: translate(calc(-50% - 20px), 0);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
 
 .mouth-image {
     z-index: 0;
@@ -53,32 +76,103 @@ h1 {
     z-index: 1;
 }
 
-.images {
-    width: 32vw;
-    height: 32vh;
-    left:53%;
-    transform: translate(calc(-50% - 20px), 0);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-    overflow: hidden;
+.hidden {
+    display: none;
 }
 
+/* ── Form ── */
 .text-form {
     padding: 10px;
 }
 
+.text-form label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+}
+
+.input-row {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--ink);
+}
+
+.input-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.85rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+}
+
+.input-row input::placeholder {
+    color: var(--ink-muted);
+    font-style: italic;
+}
+
+.input-row button {
+    background: transparent;
+    border: none;
+    border-left: 1px solid var(--ink);
+    padding: 0.85rem 1.4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-row button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-row button:hover::before {
+    transform: translateY(0);
+}
+
+.input-row button:hover {
+    color: var(--surface);
+}
+
+.input-row button:active {
+    transform: scale(0.98);
+}
+
+.input-row button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Output ── */
 .output {
     padding: 10px;
     line-height: 1.5em;
     display: flex;
     vertical-align: middle;
     justify-content: center;
-    min-height: 30px;
+    min-height: 3rem;
     border: 0.7px solid black;
     border-radius: 5px;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
 }
 
 .output .inline-syllable {
@@ -86,20 +180,60 @@ h1 {
 }
 
 .output .embold {
-    font-size: x-large;
-    font-weight: bold;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
 }
 
-.container {
-    position: relative;
-    width: 60%;
-    left: 20%;
+/* ── Board ── */
+.board {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    padding-bottom: 6rem;
 }
 
-.hidden {
-    display: none;
+.board h2 {
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
 }
 
+.board-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.board-item {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s ease;
+}
+
+.board-item:hover {
+    color: var(--accent);
+}
+
+.board-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ink-muted);
+    margin-right: 0.6rem;
+    letter-spacing: 0.05em;
+}
+
+/* ── Responsive ── */
 @media only screen and (max-width: 600px) {
     .container {
         width: 90%;

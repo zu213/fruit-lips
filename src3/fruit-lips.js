@@ -65,17 +65,22 @@ function fetchBoard() {
 
 function prependBoardItem(text) {
     const boardDiv = document.querySelector('.board-list')
+    const total = boardDiv.querySelectorAll('.board-item').length + 1
     const el = document.createElement('div')
     el.classList.add('board-item')
-    el.textContent = text
+    el.innerHTML = `<span class="board-num">${total}.</span> ${text}`
     boardDiv.insertBefore(el, boardDiv.firstChild)
+    // renumber all existing items after prepend
+    boardDiv.querySelectorAll('.board-item').forEach((item, i) => {
+        item.querySelector('.board-num').textContent = `${i + 1}.`
+    })
 }
 
 function populateBoard() {
     const boardDiv = document.querySelector('.board-list')
     fetchBoard().then(items => {
         items.reverse()
-        const processedItems = items.map(item => `<div class="board-item">${item}</div>`)
+        const processedItems = items.map((item, i) => `<div class="board-item"><span class="board-num">${i + 1}.</span> ${item}</div>`)
         boardDiv.innerHTML = processedItems.join('')
         document.querySelector('.board').classList.remove('hidden')
     })
@@ -159,6 +164,17 @@ async function syllablesToMouths(syllables) {
         element.classList.add('highlighted')
         element.classList.remove('hidden')
         wordElement.classList.add('embold')
+        const outputBox = document.getElementById('output')
+        const boxWidth = outputBox.clientWidth
+        if(outputBox.scrollWidth > boxWidth) {
+            let wordLeft = 0
+            let el = wordElement
+            while(el && el !== outputBox) {
+                wordLeft += el.offsetLeft
+                el = el.offsetParent
+            }
+            outputBox.scrollLeft = wordLeft - (boxWidth / 2) + (wordElement.offsetWidth / 2)
+        }
 
         await sleep(getMouthDuration(pos))
         element.classList.remove('highlighted')
