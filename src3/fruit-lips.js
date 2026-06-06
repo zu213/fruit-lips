@@ -103,6 +103,17 @@ addEventListener("DOMContentLoaded", function() {
         el.value = ''
     })
 
+    const mask = document.getElementById('about-mask')
+    document.querySelector('.about-link').addEventListener('click', () => {
+        mask.classList.add('open')
+    })
+    mask.addEventListener('click', (e) => {
+        if (!e.target.closest('.about')) mask.classList.remove('open')
+    })
+    document.getElementById('about-close').addEventListener('click', () => {
+        mask.classList.remove('open')
+    })
+
     addMouths()
 
     populateBoard()

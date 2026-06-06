@@ -41,10 +41,26 @@ h1 {
     color: var(--ink);
 }
 
-.site-header .edition a {
-    font-size: 0.8rem;
+.site-header .links {
+    font-size: 1rem;
     letter-spacing: 0.18em;
     color: var(--ink);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+
+    span {
+        cursor: pointer;
+    }
+
+    :hover {
+        text-decoration: underline;
+    }
+
+    a {
+        color: var(--ink);
+        text-decoration: none;
+    }
 }
 
 /* ── Main layout ── */
@@ -66,7 +82,7 @@ h1 {
     overflow: hidden;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     .images {
         width: 70vw;
         left: 58%;
@@ -75,7 +91,13 @@ h1 {
 
 .mouth-image {
     z-index: 0;
-    scale: 2.4;
+    scale: 3;
+}
+
+@media only screen and (max-width: 600px) {
+    .mouth-image {
+        scale: 2.4;
+    }
 }
 
 .highlighted {
@@ -238,6 +260,67 @@ h1 {
     letter-spacing: 0.05em;
     text-decoration: none;
     display: inline-block;
+}
+
+/* ── About ── */
+.about-mask {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(15, 15, 15, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about {
+    padding: 2rem;
+    border-radius: 5px;
+    background: var(--surface);
+    max-width: 640px;
+    width: 90%;
+    position: relative;
+    font-size: small;
+    z-index: 11;
+    max-height: 50%;
+    overflow: scroll;
+
+    p {
+        margin: 0.5rem 0;
+    }
+}
+
+.about h2 {
+    margin-bottom: 0.5rem;
+}
+
+.about-mask.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.about-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1.1rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--ink);
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.about-close:hover {
+    opacity: 1;
 }
 
 /* ── Responsive ── */
