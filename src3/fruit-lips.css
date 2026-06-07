@@ -290,8 +290,10 @@ h1 {
     position: relative;
     font-size: small;
     z-index: 11;
-    max-height: 50%;
-    overflow: scroll;
+    max-height: 70%;
+    overflow-y: scroll;
+    overflow-x: wrap;
+    scrollbar-width: thin;
 
     p {
         margin: 0.5rem 0;

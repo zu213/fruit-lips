@@ -104,15 +104,25 @@ addEventListener("DOMContentLoaded", function() {
     })
 
     const mask = document.getElementById('about-mask')
-    document.querySelector('.about-link').addEventListener('click', () => {
-        mask.classList.add('open')
-    })
-    mask.addEventListener('click', (e) => {
-        if (!e.target.closest('.about')) mask.classList.remove('open')
-    })
-    document.getElementById('about-close').addEventListener('click', () => {
-        mask.classList.remove('open')
-    })
+    if(mask) {
+        document.querySelector('.about-link').addEventListener('click', () => {
+            mask.classList.add('open')
+        })
+        mask.addEventListener('click', (e) => {
+            if (!e.target.closest('.about')) mask.classList.remove('open')
+        })
+        document.getElementById('about-close').addEventListener('click', () => {
+            mask.classList.remove('open')
+        })
+    } else {
+        const mask = document.getElementById('about-mask-lite')
+        document.querySelector('.about-link').addEventListener('click', () => {
+            mask.classList.add('open')
+        })
+        document.getElementById('about-close').addEventListener('click', () => {
+            mask.classList.remove('open')
+        })
+    }
 
     addMouths()
 
